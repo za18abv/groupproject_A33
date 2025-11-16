@@ -10,3 +10,6 @@ print(head(rainfall_india, 5))
 
 #Creating Decades using the years
 rainfall_india$Decade <- paste0((rainfall_india$YEAR %/% 10) * 10, "s")
+
+# Creates a dataset without NA values
+rf_ds <- subset(rainfall_india, rainfall_india$ANNUAL > 60)
