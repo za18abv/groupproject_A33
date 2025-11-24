@@ -14,3 +14,6 @@ rf_ds <- subset(rainfall_india, rainfall_india$ANNUAL > 60)
 #Creating Decades using the years
 rainfall_india$Decade <- (rainfall_india$YEAR %/% 10) * 10
 
+#Removes NA values from dataset
+rainfall_india <- na.omit(rainfall_india)
+
