@@ -17,3 +17,6 @@ rainfall_india$Decade <- (rainfall_india$YEAR %/% 10) * 10
 #Removes NA values from dataset
 rainfall_india <- na.omit(rainfall_india)
 
+#Install and load package dplyr
+install.packages("dplyr")
+library(dplyr)
