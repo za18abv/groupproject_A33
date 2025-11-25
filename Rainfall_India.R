@@ -20,3 +20,12 @@ rainfall_india <- na.omit(rainfall_india)
 #Install and load package dplyr
 install.packages("dplyr")
 library(dplyr)
+
+#Rename column from SUBDIVISION to REGION
+colnames (rainfall_india)[1] <- "REGION"
+
+#Calculate mean annual rainfall for the different regions
+mean_annual_rainfall_per_region <- rainfall_india %>% group_by(REGION) %>% summarize( MeanAnnualRainfall = mean(ANNUAL, na.rm = TRUE) )
+
+#View mean_annual_rainfall_per_region data table created
+View(mean_annual_rainfall_per_region)
