@@ -17,9 +17,9 @@ rainfall_india$Decade <- (rainfall_india$YEAR %/% 10) * 10
 #Removes NA values from dataset
 rainfall_india <- na.omit(rainfall_india)
 
-#Install and load package dplyr
-install.packages("dplyr")
-library(dplyr)
+#Install and load package tidyverse
+install.packages("tidyverse")
+library(tidyverse)
 
 #Rename column from SUBDIVISION to REGION
 colnames (rainfall_india)[1] <- "REGION"
