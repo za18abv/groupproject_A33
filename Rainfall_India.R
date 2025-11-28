@@ -42,3 +42,8 @@ decade_1910_table <- mean_annual_rainfall_per_region_per_decade %>%
 
 #View the 1910s decade table
 View(decade_1910_table)
+
+#Obtain the max and min annual rainfall regions for the 1910 decade
+decade_1910_table$REGION[which.max(decade_1910_table$MeanAnnualRainfall)]
+
+decade_1910_table$REGION[which.min(decade_1910_table$MeanAnnualRainfall)]
