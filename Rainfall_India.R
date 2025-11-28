@@ -1,5 +1,8 @@
-# Import the Dataset
+#Install and load library readr & tidyverse
 library(readr)
+library(tidyverse)
+
+# Import the Dataset
 rainfall_india <- read_csv("rainfall_india.csv")
 View(rainfall_india)
 
@@ -16,10 +19,6 @@ rainfall_india$Decade <- (rainfall_india$YEAR %/% 10) * 10
 
 #Removes NA values from dataset
 rainfall_india <- na.omit(rainfall_india)
-
-#Install and load package tidyverse
-install.packages("tidyverse")
-library(tidyverse)
 
 #Rename column from SUBDIVISION to REGION
 colnames (rainfall_india)[1] <- "REGION"
