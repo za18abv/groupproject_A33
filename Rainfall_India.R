@@ -93,6 +93,27 @@ curve(dnorm(x, mean = mean(ap, na.rm = TRUE), sd = sd(ap, na.rm = TRUE)),
       lwd = 2)
 
 
+hist(west_rajasthan, 
+     main = "Histogram of Annual Rainfall \n - West Rajasthan (1930s)",
+     breaks = 10, 
+     freq = FALSE, 
+     col = "steelblue",
+     xlab = "Annual Rainfall (mm)",
+     ylab = "Density",
+     xlim = c(100, 500)
+     )
+
+# Add a normal distribution curve for WR only
+curve(
+  dnorm(x,
+        mean = mean(west_rajasthan, na.rm = TRUE),
+        sd   = sd(west_rajasthan, na.rm = TRUE)),
+  add = TRUE,
+  col = "red",
+  lwd = 2
+)
+
+
 #Run independent t-test
 t.test(arunachal_pradesh, west_rajasthan, paired = FALSE)
 
