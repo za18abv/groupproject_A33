@@ -83,7 +83,7 @@ hist(ap,
      ylab = "Density",
      col = "orange",
      freq = FALSE,
-     xlim = c(3000, 6400)
+     xlim = c(3000, 6500)
      )
 
 # Add a normal distribution curve for AP only
