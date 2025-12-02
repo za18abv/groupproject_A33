@@ -117,6 +117,15 @@ curve(
 #Run independent t-test
 t.test(arunachal_pradesh, west_rajasthan, paired = FALSE)
 
+# Boxplot comparing the two regions 
+boxplot(ANNUAL ~ REGION,
+        data = two_regions,
+        main = "Boxplot of Annual Rainfall (1930s)\nArunachal Pradesh vs West Rajasthan",
+        xlab = "Region",
+        ylab = "Annual Rainfall (mm)",
+        col = c("skyblue", "lightgreen"))
+
+axis(side = 2, at = seq(0, 6000, by = 500))
 
 
 
