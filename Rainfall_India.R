@@ -36,9 +36,9 @@ decade_1930_table <- mean_annual_rainfall_per_region_per_decade %>%  filter(Deca
 view(decade_1930_table) 
 
 #Obtain the max and min annual rainfall regions for the 1910 decade
-decade_1910_table$REGION[which.max(decade_1910_table$MeanAnnualRainfall)]
+#decade_1910_table$REGION[which.max(decade_1910_table$MeanAnnualRainfall)]
 
-decade_1910_table$REGION[which.min(decade_1910_table$MeanAnnualRainfall)]
+#decade_1910_table$REGION[which.min(decade_1910_table$MeanAnnualRainfall)]
 
 #Filter rainfall dataset to return data for the 2 regions (Arunachal Pradesh & West Rajasthan) in 1930s
 two_regions <- rainfall_india %>%
@@ -73,6 +73,30 @@ curve(dnorm(x, mean = mean(x, na.rm = TRUE), sd = sd(x, na.rm = TRUE)),
       add = TRUE,
       col = "red",
       lwd = 2)
+# Histogram for Arunachal Pradesh only (1930s)
+ap <- arunachal_pradesh   # just to make the code shorter
+
+hist(ap,
+     breaks = 10,
+     main = "Histogram of Annual Rainfall (1930s)\n of Arunachal Pradesh",
+     xlab = "Annual Rainfall (mm)",
+     ylab = "Density",
+     col = "orange",
+     freq = FALSE,
+     xlim = c(3000, max(ap, na.rm = TRUE))
+     )
+
+# Add a normal distribution curve for AP only
+curve(dnorm(x, mean = mean(ap, na.rm = TRUE), sd = sd(ap, na.rm = TRUE)),
+      add = TRUE,
+      col = "red",
+      lwd = 2)
+
 
 #Run independent t-test
 t.test(arunachal_pradesh, west_rajasthan, paired = FALSE)
+
+
+
+
+
