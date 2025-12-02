@@ -78,7 +78,7 @@ ap <- arunachal_pradesh   # just to make the code shorter
 
 hist(ap,
      breaks = 10,
-     main = "Histogram of Annual Rainfall (1930s)\n of Arunachal Pradesh",
+     main = "Histogram of Annual Rainfall \n - Arunachal Pradesh (1930s)",
      xlab = "Annual Rainfall (mm)",
      ylab = "Density",
      col = "orange",
