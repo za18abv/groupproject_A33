@@ -33,38 +33,43 @@ View(sorted_meanAnnualRainfall_table)
 #Create a 1930s table (decade with the second highest mean annual rainfall)
 decade_1930_table <- mean_annual_rainfall_per_region_per_decade %>%  filter(Decade == 1930)
 
-view(decade_1930_table) 
+sorted_decade_1930_table <- decade_1930_table %>% arrange(desc(MeanAnnualRainfall))
 
-#Obtain the max and min annual rainfall regions for the 1910 decade
+view(sorted_decade_1930_table) 
+
+#Obtain the max and min annual rainfall regions for the 1930 decade
 decade_1930_table$REGION[which.max(decade_1930_table$MeanAnnualRainfall)]
 
 decade_1930_table$REGION[which.min(decade_1930_table$MeanAnnualRainfall)]
 
-#Filter rainfall dataset to return data for the 2 regions (Arunachal Pradesh & West Rajasthan) in 1930s
+#Filter rainfall dataset to return data for the selected 2 regions (Coastal Karnataka and Andaman & Nicobar Islands) in 1930s
 two_regions <- rainfall_india %>%
-  filter(REGION %in% c("ARUNACHAL PRADESH", "WEST RAJASTHAN"), YEAR >= 1930,
+  filter(REGION %in% c("COASTAL KARNATAKA", "ANDAMAN & NICOBAR ISLANDS"), YEAR >= 1930,
          YEAR <= 1939)
 
 #Extract the annual values for each group (For statistical testing)
-arunachal_pradesh <- two_regions %>% 
-  filter(REGION == "ARUNACHAL PRADESH") %>% 
+coastal_karnataka <- two_regions %>% 
+  filter(REGION == "COASTAL KARNATAKA") %>% 
   pull(ANNUAL)
 
-west_rajasthan <- two_regions %>% 
-  filter(REGION == "WEST RAJASTHAN") %>% 
+andaman_nicobar_islands <- two_regions %>% 
+  filter(REGION == "ANDAMAN & NICOBAR ISLANDS") %>% 
   pull(ANNUAL)
 
 #Perform basic statistical analysis for both regions
-summary(arunachal_pradesh)
-summary(west_rajasthan)
+ck <- coastal_karnataka
+an <- andaman_nicobar_islands
+
+summary(ck)
+summary(an)
 
 #Plot histogram of both regions (to determine type of test)
 x <- two_regions$ANNUAL
 hist(x,
      breaks = 10,
-     xlab = "ANNUAL RAINFALL",
+     xlab = "Annual Rainfall (mm)",
      ylab = "Density",
-     main = "Histogram of 1930s ANNUAL rainfall for AP & WR with Normal Curve",
+     main = "Histogram of 1930s ANNUAL rainfall for CK & AN with Normal Curve",
      col = "steelblue",
      freq = FALSE) 
 
@@ -115,7 +120,7 @@ curve(
 
 
 #Run independent t-test
-t.test(arunachal_pradesh, west_rajasthan, paired = FALSE)
+t.test(ck, an, paired = FALSE)
 
 # Boxplot comparing the two regions 
 boxplot(ANNUAL ~ REGION,
