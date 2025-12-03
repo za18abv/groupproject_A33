@@ -36,9 +36,9 @@ decade_1930_table <- mean_annual_rainfall_per_region_per_decade %>%  filter(Deca
 view(decade_1930_table) 
 
 #Obtain the max and min annual rainfall regions for the 1910 decade
-#decade_1910_table$REGION[which.max(decade_1910_table$MeanAnnualRainfall)]
+decade_1930_table$REGION[which.max(decade_1930_table$MeanAnnualRainfall)]
 
-#decade_1910_table$REGION[which.min(decade_1910_table$MeanAnnualRainfall)]
+decade_1930_table$REGION[which.min(decade_1930_table$MeanAnnualRainfall)]
 
 #Filter rainfall dataset to return data for the 2 regions (Arunachal Pradesh & West Rajasthan) in 1930s
 two_regions <- rainfall_india %>%
