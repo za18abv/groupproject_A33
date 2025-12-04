@@ -78,12 +78,12 @@ curve(dnorm(x, mean = mean(x, na.rm = TRUE), sd = sd(x, na.rm = TRUE)),
       add = TRUE,
       col = "red",
       lwd = 2)
-# Histogram for Arunachal Pradesh only (1930s)
-ap <- arunachal_pradesh   # just to make the code shorter
+# Histogram for Coastal Karnataka only (1930s)
+ck <- coastal_karnataka   # just to make the code shorter
 
 hist(ap,
      breaks = 10,
-     main = "Histogram of Annual Rainfall \n - Arunachal Pradesh (1930s)",
+     main = "Histogram of Annual Rainfall \n - Coastal Karnataka (1930s)",
      xlab = "Annual Rainfall (mm)",
      ylab = "Density",
      col = "orange",
@@ -91,8 +91,8 @@ hist(ap,
      xlim = c(3000, 6500)
      )
 
-# Add a normal distribution curve for AP only
-curve(dnorm(x, mean = mean(ap, na.rm = TRUE), sd = sd(ap, na.rm = TRUE)),
+# Add a normal distribution curve for CK only
+curve(dnorm(x, mean = mean(ck , na.rm = TRUE), sd = sd(ap, na.rm = TRUE)),
       add = TRUE,
       col = "red",
       lwd = 2)
