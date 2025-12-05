@@ -162,16 +162,17 @@ curve(
 #Run independent t-test
 t.test(ck, an, paired = FALSE)
 
-# Boxplot comparing the two regions 
+# Boxplot comparing the two regions with y-axis labelled in 1000*mm
 boxplot(ANNUAL ~ REGION,
         data = two_regions,
-        main = "Boxplot of Annual Rainfall (1930s)\nArunachal Pradesh vs West Rajasthan",
+        main = "Boxplot of Annual Rainfall (1930s)\nAndaman & Nicobar vs Coastal Karnataka",
         xlab = "Region",
-        ylab = "Annual Rainfall (mm)",
-        col = c("skyblue", "lightgreen"))
+        ylab = "Annual Rainfall (mm x 1000)",
+        col = c("skyblue", "lightgreen"),
+        ylim = c(2000, 4500),
+        yaxt = "n")  # remove default y-axis
 
-axis(side = 2, at = seq(0, 6000, by = 500))
-
-
-
-
+# Custom ticks: 2000 to 4500 with labels 2 to 4.5
+axis(side = 2,
+     at = seq(2000, 4500, by = 500),
+     labels = seq(2, 4.5, by = 0.5))
