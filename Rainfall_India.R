@@ -63,21 +63,61 @@ an <- andaman_nicobar_islands
 summary(ck)
 summary(an)
 
-#Plot histogram of both regions (to determine type of test)
-x <- two_regions$ANNUAL
+#Plot histogram of both regions (to determine type of test) & Scale the data by dividing by 1000
+x <- two_regions$ANNUAL / 1000
+
 hist(x,
      breaks = 10,
-     xlab = "Annual Rainfall (mm)",
-     ylab = "Density",
-     main = "Histogram of 1930s ANNUAL rainfall for CK & AN with Normal Curve",
+     xlab = "Annual Rainfall (mm × 1000)",
+     ylab = "Density (per thousand mm)",  # More descriptive
+     main = "Histogram of 1930s Annual Rainfall for\nCoastal Karnataka and Andaman & Nicobar Islands",
      col = "steelblue",
-     freq = FALSE) 
+     border = "white",
+     freq = FALSE,
+     las = 1,
+     xlim = c(2, 4.5),
+     ylim = c(0, 1.2),
+     axes = FALSE)
+
+# Custom x-axis with better spacing
+axis(side = 1, 
+     at = seq(2, 4.5, by = 0.5),
+     labels = seq(2, 4.5, by = 0.5),
+     tcl = -0.3)
+
+# Custom y-axis
+axis(side = 2, 
+     at = seq(0, 1.2, by = 0.2),
+     labels = seq(0, 1.2, by = 0.2),
+     las = 1,
+     tcl = -0.3)
+
+# Add minor gridlines
+abline(v = seq(2, 4.5, by = 0.25), col = "gray95", lty = 1)
+abline(h = seq(0, 1.2, by = 0.1), col = "gray95", lty = 1)
+
+# Re-plot histogram on top of grid
+hist(x,
+     breaks = 10,
+     col = "steelblue",
+     border = "white",
+     freq = FALSE,
+     add = TRUE)
+
+# Add a text annotation explaining the scaling
+mtext("Note: Rainfall values scaled by 1/1000 for clarity", 
+      side = 1, 
+      line = 4, 
+      cex = 0.8, 
+      col = "gray40")
 
 #Add normal curve overlay to histogram
 curve(dnorm(x, mean = mean(x, na.rm = TRUE), sd = sd(x, na.rm = TRUE)),
       add = TRUE,
       col = "red",
       lwd = 2)
+
+
 # Histogram for Coastal Karnataka only (1930s)
 ck <- coastal_karnataka   # just to make the code shorter
 
