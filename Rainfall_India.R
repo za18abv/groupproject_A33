@@ -138,31 +138,11 @@ curve(dnorm(x, mean = mean(ck , na.rm = TRUE), sd = sd(ap, na.rm = TRUE)),
       lwd = 2)
 
 
-hist(west_rajasthan, 
-     main = "Histogram of Annual Rainfall \n - West Rajasthan (1930s)",
-     breaks = 10, 
-     freq = FALSE, 
-     col = "steelblue",
-     xlab = "Annual Rainfall (mm)",
-     ylab = "Density",
-     xlim = c(100, 500)
-     )
-
-# Add a normal distribution curve for WR only
-curve(
-  dnorm(x,
-        mean = mean(west_rajasthan, na.rm = TRUE),
-        sd   = sd(west_rajasthan, na.rm = TRUE)),
-  add = TRUE,
-  col = "red",
-  lwd = 2
-)
-
 
 #Run independent t-test
 t.test(ck, an, paired = FALSE)
 
-# Boxplot comparing the two regions with y-axis labelled in 1000*mm
+# Boxplot f Annual Rainfall (1930s)\nAndaman & Nicobar vs Coastal Karnataka
 boxplot(ANNUAL ~ REGION,
         data = two_regions,
         main = "Boxplot of Annual Rainfall (1930s)\nAndaman & Nicobar vs Coastal Karnataka",
@@ -170,9 +150,9 @@ boxplot(ANNUAL ~ REGION,
         ylab = "Annual Rainfall (mm x 1000)",
         col = c("skyblue", "lightgreen"),
         ylim = c(2000, 4500),
-        yaxt = "n")  # remove default y-axis
+        yaxt = "n")  
 
-# Custom ticks: 2000 to 4500 with labels 2 to 4.5
+
 axis(side = 2,
      at = seq(2000, 4500, by = 500),
      labels = seq(2, 4.5, by = 0.5))
