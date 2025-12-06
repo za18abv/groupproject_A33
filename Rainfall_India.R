@@ -118,27 +118,6 @@ curve(dnorm(x, mean = mean(x, na.rm = TRUE), sd = sd(x, na.rm = TRUE)),
       lwd = 2)
 
 
-# Histogram for Coastal Karnataka only (1930s)
-ck <- coastal_karnataka   # just to make the code shorter
-
-hist(ap,
-     breaks = 10,
-     main = "Histogram of Annual Rainfall \n - Coastal Karnataka (1930s)",
-     xlab = "Annual Rainfall (mm)",
-     ylab = "Density",
-     col = "orange",
-     freq = FALSE,
-     xlim = c(3000, 6500)
-     )
-
-# Add a normal distribution curve for CK only
-curve(dnorm(x, mean = mean(ck , na.rm = TRUE), sd = sd(ap, na.rm = TRUE)),
-      add = TRUE,
-      col = "red",
-      lwd = 2)
-
-
-
 #Run independent t-test
 t.test(ck, an, paired = FALSE)
 
@@ -152,7 +131,7 @@ boxplot(ANNUAL ~ REGION,
         ylim = c(2000, 4500),
         yaxt = "n")  
 
-
 axis(side = 2,
      at = seq(2000, 4500, by = 500),
      labels = seq(2, 4.5, by = 0.5))
+
