@@ -71,7 +71,7 @@ hist(x,
      breaks = 10,
      freq = TRUE,
      xlab = "Annual Rainfall (mm × 1000)",
-     ylab = "Frequency (per thousand mm)",  # More descriptive
+     ylab = "Frequency (in thousands)",  # More descriptive
      main = "Histogram of 1930s Annual Rainfall for\nCoastal Karnataka and Andaman & Nicobar Islands",
      col = "steelblue",
      border = "white",
