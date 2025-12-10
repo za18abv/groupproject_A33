@@ -104,10 +104,20 @@ mtext("Note: Rainfall values scaled by 1/1000 for clarity",
       cex = 0.8, 
       col = "gray40")
 
-#Run independent t-test
+#Save image to png file
+dev.copy(png, 
+         filename = "annualRainfall_histogram_plot_CK&AM.png",
+         width = 800,                         
+         height = 600,                    
+         res = 120) 
+
+#close device
+dev.off()
+
+#Run independent t-test for the regions
 t.test(ck, an, paired = FALSE)
 
-# Boxplot f Annual Rainfall (1930s)\nAndaman & Nicobar vs Coastal Karnataka
+# Boxplot of Annual Rainfall (1930s)\nAndaman & Nicobar vs Coastal Karnataka
 
 png("Boxplot.png", width = 1200, height = 900, res = 150)
 
