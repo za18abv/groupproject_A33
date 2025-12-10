@@ -108,6 +108,9 @@ mtext("Note: Rainfall values scaled by 1/1000 for clarity",
 t.test(ck, an, paired = FALSE)
 
 # Boxplot f Annual Rainfall (1930s)\nAndaman & Nicobar vs Coastal Karnataka
+
+png("Boxplot.png", width = 1200, height = 900, res = 150)
+
 boxplot(ANNUAL ~ REGION,
         data = two_regions,
         main = "Boxplot of Annual Rainfall (1930s)\nAndaman & Nicobar vs Coastal Karnataka",
@@ -120,4 +123,6 @@ boxplot(ANNUAL ~ REGION,
 axis(side = 2,
      at = seq(2000, 4500, by = 500),
      labels = seq(2, 4.5, by = 0.5))
+
+dev.off()
 
